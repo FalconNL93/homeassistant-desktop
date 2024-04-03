@@ -24,7 +24,7 @@ autoUpdater.setFeedURL({
   provider: 'generic',
   url: updateUrl,
 });
-logger.catchErrors();
+logger.errorHandler.startCatching();
 logger.info(`${app.name} started`);
 logger.info(`Platform: ${process.platform} ${process.arch}`);
 
