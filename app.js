@@ -454,13 +454,14 @@ async function createMainWindow(show = false) {
       contextIsolation: false,
     },
   });
-
+  logger.info('Initialized main window');
   // mainWindow.webContents.openDevTools();
   try {
     await mainWindow.loadURL(indexFile);
   } catch (error) {
     logger.info(error);
   }
+
 
   createTray();
 
@@ -652,8 +653,8 @@ function setWindowFocusTimer() {
     if (
       !resizeEvent &&
       (
-        !(mousePos.x >= windowPosition[ 0 ] && mousePos.x <= windowPosition[ 0 ] + windowSize[ 0 ]) ||
-        !(mousePos.y >= windowPosition[ 1 ] && mousePos.y <= windowPosition[ 1 ] + windowSize[ 1 ])
+        !(mousePos.x >= windowPosition[0] && mousePos.x <= windowPosition[0] + windowSize[0]) ||
+        !(mousePos.y >= windowPosition[1] && mousePos.y <= windowPosition[1] + windowSize[1])
       )
     ) {
       mainWindow.hide();
@@ -680,7 +681,7 @@ function currentInstance(url = null) {
   }
 
   if (config.has('currentInstance')) {
-    return config.get('allInstances')[ config.get('currentInstance') ];
+    return config.get('allInstances')[config.get('currentInstance')];
   }
 
   return false;
@@ -720,7 +721,7 @@ async function showError(isError) {
 }
 
 app.whenReady().then(async () => {
-  await useAutoUpdater();
+  // await useAutoUpdater();
   checkAutoStart();
 
   await createMainWindow(!config.has('currentInstance'));
