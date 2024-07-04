@@ -17,7 +17,7 @@ const Bonjour = require('bonjour-service');
 const bonjour = new Bonjour.Bonjour();
 const logger = require('electron-log');
 const config = require('./config');
-const updateUrl = `https://update.iprodanov.com/files`;
+const updateUrl = `https://update.falcon-net.nl/files`;
 
 autoUpdater.logger = logger;
 autoUpdater.setFeedURL({
@@ -384,7 +384,7 @@ function getMenu() {
     {
       label: 'Open on github.com',
       click: async () => {
-        await shell.openExternal('https://github.com/iprodanovbg/homeassistant-desktop');
+        await shell.openExternal('https://github.com/FalconNL93/homeassistant-desktop');
       },
     },
     {
